@@ -29,7 +29,17 @@ export function filterData(characters, selection) {
   });
 }
 
-
+export function searchCharacters(characters, searchTerm) {
+  if (!searchTerm) {
+    return characters;
+  } else {
+    return characters.filter((character) => {
+      const name = character.name.toLowerCase();
+      const search = searchTerm.toLowerCase();
+      return name.includes(search);
+    });
+  }
+}
 
 
 //export const anotherExample = () => {
