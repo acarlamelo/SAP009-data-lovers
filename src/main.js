@@ -1,12 +1,21 @@
 import data from './data/harrypotter/data.js';
-import { sortData, filterData, filterHouse } from './data.js'
+import { sortData, filterData, filterHouse, searchCharacters } from './data.js'
 
 
 const select = document.getElementById("ordenalfa");
 const filterHouseElement = document.getElementById("filter-house");
 const filterGeneroElement = document.getElementById("filter-genero");
 const container = document.getElementById("characters-container");
+const resultadoElement = document.getElementById("resultado")
+const searchInput = document.getElementById("searchInput");
 export const characters = [...data.characters]; 
+
+
+searchInput.addEventListener("input", () => {
+  const searchTerm = searchInput.value;
+  const dataFiltrada = searchCharacters(characters, searchTerm)
+  showCharacters(dataFiltrada);
+});
 
 
 select.addEventListener('change', () => {
@@ -70,6 +79,7 @@ function showCharacters(characters) {
   }
 }
 
+
 function updateCharacters() {
   const selectedOption = select.options[select.selectedIndex].value;
   const filteredData = sortData(characters, selectedOption);
@@ -83,7 +93,35 @@ function updateCharactersByHouse() {
   const selectedHouse = filterHouseElement.value;
   const filteredCharacters = filterHouse(characters, selectedHouse);
   showCharacters(filteredCharacters);
-}
+
+  resultadoElement.innerHTML = '';
+  
+  if (selectedHouse !== 'todas') {
+    const resultado = filteredCharacters.reduce((acumulador, personaje) => {
+      const casa = personaje.house;
+      if (!acumulador[casa]) {
+        acumulador[casa] = { hombres: 0, mujeres: 0 };
+      }
+      if (personaje.gender === 'Male') {
+        acumulador[casa].hombres++;
+      } else if (personaje.gender === 'Female') {
+        acumulador[casa].mujeres++;
+      }
+      return acumulador;
+    }, {});
+
+    const resultadoTexto = Object.keys(resultado).map(casa => {
+      const hombres = resultado[casa].hombres;
+      const mujeres = resultado[casa].mujeres;
+      return `${casa}: ${hombres} hombres y ${mujeres} mujeres`;
+    }).join(', ');
+
+    const parrafo = document.createElement('p');
+    parrafo.textContent = `Cantidad de hombres y mujeres por casa de Harry Potter: ${resultadoTexto}`;
+    resultadoElement.appendChild(parrafo);
+  }
+}  
+
 
 filterHouseElement.addEventListener("change", updateCharactersByHouse);
 
