@@ -8,15 +8,19 @@ const filterGeneroElement = document.getElementById("filter-genero");
 const container = document.getElementById("characters-container");
 const resultadoElement = document.getElementById("resultado")
 const searchInput = document.getElementById("searchInput");
+const clearBtn = document.getElementById("clear-button")
 export const characters = [...data.characters]; 
-
 
 searchInput.addEventListener("input", () => {
   const searchTerm = searchInput.value;
   const dataFiltrada = searchCharacters(characters, searchTerm)
+
   showCharacters(dataFiltrada);
 });
 
+clearBtn.addEventListener("click",()=> {
+  searchInput.value = "" ;
+})
 
 select.addEventListener('change', () => {
   const selectedOption = select.options[select.selectedIndex].value;
@@ -69,10 +73,10 @@ function showCharacters(characters) {
     house.classList.add('house');
     info.appendChild(house);
 
-    const groups = document.createElement('div');
-    groups.textContent = `Grupos associados: ${character.associated_groups}`;
-    groups.classList.add('groups');
-    info.appendChild(groups);
+    // const groups = document.createElement('div');
+    // groups.textContent = `Grupos associados: ${character.associated_groups}`;
+    // groups.classList.add('groups');
+    // info.appendChild(groups);
 
     card.appendChild(info);
     container.appendChild(card);
@@ -97,27 +101,27 @@ function updateCharactersByHouse() {
   resultadoElement.innerHTML = '';
   
   if (selectedHouse !== 'todas') {
-    const resultado = filteredCharacters.reduce((acumulador, personaje) => {
-      const casa = personaje.house;
-      if (!acumulador[casa]) {
-        acumulador[casa] = { hombres: 0, mujeres: 0 };
+    const resultado = filteredCharacters.reduce((accumulador, character) => {
+      const casa = character.house;
+      if (!accumulador[casa]) {
+        accumulador[casa] = { male: 0, female: 0 };
       }
-      if (personaje.gender === 'Male') {
-        acumulador[casa].hombres++;
-      } else if (personaje.gender === 'Female') {
-        acumulador[casa].mujeres++;
+      if (character.gender === 'Male') {
+        accumulador[casa].male++;
+      } else if (character.gender === 'Female') {
+        accumulador[casa].female++;
       }
-      return acumulador;
+      return accumulador;
     }, {});
 
     const resultadoTexto = Object.keys(resultado).map(casa => {
-      const hombres = resultado[casa].hombres;
-      const mujeres = resultado[casa].mujeres;
-      return `${casa}: ${hombres} hombres y ${mujeres} mujeres`;
+      const male = resultado[casa].male;
+      const female = resultado[casa].female;
+      return `${casa}: ${male} masculinos e ${female} femininos`;
     }).join(', ');
 
     const parrafo = document.createElement('p');
-    parrafo.textContent = `Cantidad de hombres y mujeres por casa de Harry Potter: ${resultadoTexto}`;
+    parrafo.textContent = `A casa ${resultadoTexto}`;
     resultadoElement.appendChild(parrafo);
   }
 }  
@@ -130,7 +134,7 @@ function updateCharactersByGender() {
   const selectedGenero = filterGeneroElement.value;
   const filteredCharacters = filterData(characters, selectedGenero);
   showCharacters(filteredCharacters);
-}
+};
 
 filterGeneroElement.addEventListener("change", updateCharactersByGender);
 

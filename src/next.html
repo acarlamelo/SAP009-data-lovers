@@ -7,44 +7,44 @@
   </head>
   <body>
     <header>
-    <div class="menu">
-      <section>
-      <h1 class="title">Manual Potterhead</h1>
-      </section>
-      <ul id="character-list"></ul>
-      <p id="stats-container"></p>
-      <select id="ordenalfa">
-        <option>Ordem Alfabética</option>
-        <option value="az">A - Z</option>
-        <option value="za">Z - A</option>
-      </select>
-      <ul id="list">
-        <li><!-- nomes ordenados --></li>
-      </ul>
-      <select id="filter-house">
-        <option>Casa</option>
-        <option value="todas">Todas</option>
-        <option value="Gryffindor">Gryffindor</option>
-        <option value="Slytherin">Slytherin</option>
-        <option value="Ravenclaw">Ravenclaw</option>
-        <option value="Hufflepuff">Hufflepuff</option>
-      </select>
-      <ul id="list-house">
-        <li><!-- Casas ordenadas --></li>
-      </ul>
-      <select id="filter-genero">
-        <option value="genero">Genero</option>
-        <option value="female">Female</option>
-        <option value="male">Male</option>
-      </select>
-      <input class="search" type="search-input" placeholder="Search Character">
-      <button id="search-button">Buscar</button>
-    </div>
+    <nav class="navBar">
+        <section>
+        <h1 class="title">Manual Potterhead</h1>
+        </section>
+        <ul id="character-list"></ul>
+        <div id="stats-container"></div>
+        <select id="ordenalfa" class="menu-items">
+          <option disabled selected>Ordem Alfabética</option>
+          <option value="az">A - Z</option>
+          <option value="za">Z - A</option>
+        </select>
+        <ul id="list">
+          <li><!-- nomes ordenados --></li>
+        </ul>
+        <select id="filter-house" class="menu-items">
+          <option>Casa</option>
+          <option value="todas">Todas</option>
+          <option value="Gryffindor">Gryffindor</option>
+          <option value="Slytherin">Slytherin</option>
+          <option value="Ravenclaw">Ravenclaw</option>
+          <option value="Hufflepuff">Hufflepuff</option>
+        </select>
+        <ul id="list-house">
+          <li><!-- Casas ordenadas --></li>
+        </ul>
+        <select id="filter-genero" class="menu-items">
+          <option value="genero">Genero</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+        </select>
+        <input type="text" id='searchInput'placeholder="Search Character" class="menu-items">
+        <button id="clear-button">Limpar</button>
+        </nav>
   </header>
-    <div id="characters-container"></div>
-    <div id="root"></div>
-    <script src="main.js" type="module"></script>
-    <footer><p>Desenvolvido por <a href="https://github.com/acarlamelo" target="_blank">Carla Melo</a> e <a
-      href="https://github.com/edelisec" target="_blank">Edelice González</a></p></footer>
+  <div><p id="resultado"></p></div>
+    <div id="characters-container" ></div>
+  <div id="root"></div>
+  <script src="main.js" type="module"></script>
+  <footer><p>Desenvolvido por <a href="https://github.com/acarlamelo" target="_blank">Carla Melo</a> e <a href="https://github.com/edelisec" target="_blank">Edelice González</a></p></footer>
   </body>
 </html>
