@@ -116,6 +116,7 @@ Protótipo de baixa fidelidade
 ![image](https://user-images.githubusercontent.com/119886217/230214971-581549e6-7630-4fe0-abc3-7c973f70eca8.png)
 
 Protótipo de alta fidelidade
+
 ![image](https://user-images.githubusercontent.com/119886217/230215098-fa5a30ec-b4cb-4772-99c0-e9345ffc4094.png)
 
 Testes de usabilidade
