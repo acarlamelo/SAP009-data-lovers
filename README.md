@@ -18,26 +18,21 @@ Segundo a Forbes 90% dos dados que existem hoje foram gerados durante os último
 
 Apesar disso, os dados por si só são de pouca utilidade. Para que essas grandes quantidades de dados se convertam em informação compreensível para os usuários, precisamos entender e processar estes dados. Uma forma simples de fazer isso é criando interfaces e visualizações.
 
-Na imagem seguinte, você pode ver como os dados que estão na parte esquerda podem ser usados para construir a interface amigável e compreensível que está na parte direita.
-
-json-interface
 2. Resumo do projeto
 
-Neste projeto você construirá uma página web para visualizar um conjunto (set) de dados que se adeque às necessidades de seu usuário.
+Neste projeto foi desenvolvida uma página web para visualizar um conjunto (set) de dados que se adeque às necessidades dos usuários.
 
-Como entregável final terá uma página web que permita visualizar dados, filtrá-los, ordená-los e fazer algum cálculo agregado. Por cálculo agregado nos referimos aos diversos cálculos que podem ser feitos com os dados para mostrar a informação mais relevante para os usuários (médias, valores máximos e mínimos, etc).
-
-Para este projeto trazemos uma série de dados de temáticas diferentes para que você explore e decida com qual delas deseja trabalhar. Escolhemos especificamente estes conjuntos de dados porque cremos que se adequem bem a esta etapa de sua aprendizagem.
-
-Uma vez que você defina sua área de interesse, busque entender quem é seu usuário e o que exatamente ele necessita saber ou ver, para que assim possa construir a interface que o ajude a interagir e entender melhor os dados.
+Como entregável final terá uma página web que permita visualizar dados, filtrá-los, ordená-los e fazer algum cálculo agregado. Por cálculo agregado nos referimos aos diversos cálculos que podem ser feitos com os dados para mostrar a informação mais relevante para os usuários (no nosso caso, a quantidade de personagens masculinos e femininos de cada casa).
 
 Este são os dados que contém nesse projeto:
+
 Harry Potter. Este conjunto nos fornece uma lista dos personagens, livros e feitiços de toda a saga Harry Potter Harry Potter.
 Pesquisa com seguidores de Harry Potter e quantidades de personagens masculinos e femininos de cada casa.
 
 O objetivo principal deste projeto é que o usuário(fãs de Harry Potter e sua turma) poderiam usar o nosso site a qualquer momento, mas é provável que o façam principalmente durante seu tempo livre, para aprender mais sobre Harry Potter ou simplesmente satisfazer sua curiosidade. Também é possível que os usuários usem o produto antes ou depois de assistir um filme ou ler um livro relacionado a Harry Potter, para obter informações sobre personagens e eventos no mundo de Harry Potter.
 
 3. Objetivos de aprendizagem
+
 HTML
 
     Uso de HTML semântico
@@ -192,8 +187,6 @@ como toda a configuração de dependências:
 └── test
    └── data.spec.js
 
-directory: 7 file: 20
-```
 
 ### `src/index.html`
 
