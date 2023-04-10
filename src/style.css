@@ -117,11 +117,17 @@ h2 {
   background: transparent;
   color: white;
   cursor: pointer;
-  left: 550px;
-  top: 300px;
   margin: 10px;
   overflow: hidden;
-  position: relative;
+  align-self: center;
+  
+}
+
+.buttons-menu{
+  display: flex;
+  justify-content: center;
+  top: 200px;
+  
 }
 
 .btn:hover {

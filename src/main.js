@@ -134,7 +134,7 @@ function updateCharactersByGender() {
   const selectedGenero = filterGeneroElement.value;
   const filteredCharacters = filterData(characters, selectedGenero);
   showCharacters(filteredCharacters);
-};
+}
 
 filterGeneroElement.addEventListener("change", updateCharactersByGender);
 

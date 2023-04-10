@@ -19,13 +19,7 @@ export function filterHouse(characters, house) {
 
 export function filterData(characters, selection) {
   return characters.filter(character => {
-    if (selection === 'male') {
-      return character.gender === 'Male';
-    } else if (selection === 'female') {
-      return character.gender === 'Female';
-    } else {
-      return true;
-    }
+    return character.gender.toLowerCase()===selection
   });
 }
 
@@ -41,9 +35,5 @@ export function searchCharacters(characters, searchTerm) {
   }
 }
 
-
-//export const anotherExample = () => {
-//  return 'OMG';
-//};
 
 
