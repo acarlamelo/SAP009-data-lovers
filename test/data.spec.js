@@ -22,7 +22,7 @@ const stewart = {
 }
 const african = {
   "id": 3,
-  "name": "Agnes",
+  "name": "African",
   "birth": null,
   "death": null,
   "species": "Human",
@@ -78,9 +78,9 @@ describe("sort by gender", () => {
     expect(typeof filterData).toBe("function")
   });
   it("classificar o sexo", () => {
-    expect(filterData(testCharacters, "male")).toEqual([stewart, euan]);
+    expect(filterData(testCharacters, "male")).toEqual([euan, stewart]);
     expect(filterData(testCharacters, "female")).toEqual([african]);
-    expect
+    expect(filterData(testCharacters, "todos")).toEqual([euan, african, stewart]);
   });
 });
 //testar se a função filters realmente é uma função -- ok
@@ -91,7 +91,7 @@ describe("filter", () => {
   it("filtrar casa", () => {
     expect(filterHouse(testCharacters, "Ravenclaw")).toEqual([stewart]);
     expect(filterHouse(testCharacters, "Gryffindor")).toEqual([euan]);
-    expect(filterHouse(testCharacters, "todas")).toEqual([euan, stewart, african]);
+    expect(filterHouse(testCharacters, "todas")).toEqual([euan, african, stewart]);
   })
 });
 //testar se a função searchCharacter realmente é uma função -- ok
@@ -100,6 +100,7 @@ describe("search by character", () => {
     expect(typeof searchCharacters).toBe("function")
   });
   it("buscar personagens", () => {
-    expect((searchCharacters, "")).toEqual("data")
+    expect(searchCharacters(testCharacters, "st")).toEqual([stewart]);
+    // expect(searchCharacters(testCharacters, "todos")).toEqual([euan, african, stewart]);
   });
 });
